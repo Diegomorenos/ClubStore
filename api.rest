@@ -1,0 +1,32 @@
+###
+POST HTTP://localhost:3000/api
+Content-Type: application/json
+
+{
+    "name": "Restaurante La Negra",
+    "category": "Restaurante",
+    "information": "Los mejores platos tipicos de la ciudad, almuerzo corriente y especial",
+    "phone": "3102334564",
+    "location": "la candelaria",
+    "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAAf8ylsZHj3fTUJcb-Q7rL7Z544wPtRAHi-ciT1JEkvtFdxMF_Kzs-XqeM-H1nuNVmzo&usqp=CAU"
+}
+
+###
+GET http://localhost:3000
+
+###
+GET http://localhost:3000/api
+
+###
+GET http://localhost:3000/api/608a110da59cdc3bd4a141bf
+
+###
+PUT http://localhost:3000/api/608a110da59cdc3bd4a141bf
+Content-Type: application/json
+
+{
+    "phone": "3213232341"
+}
+
+###
+DELETE http://localhost:3000/api/608a110da59cdc3bd4a141bf
