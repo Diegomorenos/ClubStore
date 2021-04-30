@@ -9,6 +9,7 @@ import storeRoutes from './routes/store.routes';
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 app.set('pkg', pkg);
