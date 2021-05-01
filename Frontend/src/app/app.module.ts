@@ -14,6 +14,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Page404Component } from './components/page404/page404.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Page404Component } from './components/page404/page404.component';
     NosotrosComponent,
     ContactComponent,
     FooterComponent,
-    Page404Component
+    Page404Component,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
