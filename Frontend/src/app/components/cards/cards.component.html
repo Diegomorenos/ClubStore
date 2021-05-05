@@ -1,14 +1,14 @@
 <div class="d-flex flex-wrap justify-content-center">
-    <div *ngFor="let store of storeService.store" class="m-4">
-        <div class="card" style="width: 18rem;">
-            <img src={{store.imgUrl}} class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{store.name}}</h5>
-              <p class="card-text">{{store.phone}}</p>
-              <p class="card-text">{{store.location}}</p>
-              <p class="card-text">{{store.category}}</p>
-              <button (click)="accept()" class="btn card-btn-color">Comprar!</button>
-            </div>
-        </div>
+  <div *ngFor="let store of storeService.store" class="m-4">
+    <div class="card" style="width: 18rem">
+      <img src="{{ store.imgUrl }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ store.name }}</h5>
+        <p class="card-text">{{ store.phone }}</p>
+        <p class="card-text">{{ store.location }}</p>
+        <p class="card-text">{{ store.category }}</p>
+        <button (click)="accept()" class="btn card-btn-color">Comprar!</button>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,46 +1,42 @@
-.cuadro{  
-    background: linear-gradient(90deg, rgb(193, 224, 12) 0%, rgb(0, 0, 0) 100%);
-    
+.cuadro {
+  background: linear-gradient(90deg, rgb(193, 224, 12) 0%, rgb(0, 0, 0) 100%);
 }
 
-p{
-    color:  rgb(248, 244, 255)
+p {
+  color: rgb(248, 244, 255);
 }
 
-    .equipo {
-        
-       background: linear-gradient(90deg, rgb(193, 224, 12) 0%, rgb(0, 0, 0) 100%);
-    } 
-    
-    h2{
-        text-align: center;
-        font-family: 'krona one', sans-serif;
-        margin-bottom: 2%;
-        color: #beb8a1ff
-        ;
-    }
-    .section-flex{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .character{
-        width: 25%;
-        margin: 3%;
-        border: 2px #E6E6E6 ;
-        border-right: 3px #E6E6E6 ;
-        border-bottom: 3px #E6E6E6 ;
-        text-align: center;
-        border-radius: 5px;
-    }
-    
-    .character img{
-        width: 50%;
-        border-radius: 10%;
-    }
-    
-    .info-character{
-        color: #beb8a1ff;
-        padding: 3%;
-    }
+.equipo {
+  background: linear-gradient(90deg, rgb(193, 224, 12) 0%, rgb(0, 0, 0) 100%);
+}
 
+h2 {
+  text-align: center;
+  font-family: "krona one", sans-serif;
+  margin-bottom: 2%;
+  color: #beb8a1ff;
+}
+.section-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.character {
+  width: 25%;
+  margin: 3%;
+  border: 2px #e6e6e6;
+  border-right: 3px #e6e6e6;
+  border-bottom: 3px #e6e6e6;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.character img {
+  width: 50%;
+  border-radius: 10%;
+}
+
+.info-character {
+  color: #beb8a1ff;
+  padding: 3%;
+}

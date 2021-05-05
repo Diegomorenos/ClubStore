@@ -1,88 +1,137 @@
 <div class="container-fluid">
-    <div class="row">
-        <!-- Form-->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">Administracion de productos</div>
-                <div class="card-body">
-                    <form #storeForm="ngForm">
-                        <div class="form-group d-flex flex-column">
-                            <input type="hidden" id="_id" name="_id" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore._id" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" name="name" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.name" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="phone">Telefono</label>
-                            <input type="text" id="phone" name="phone" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.phone" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="location">Barrio</label>
-                            <input type="text" id="location" name="location" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.location" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="category">Categoria</label>
-                            <input type="text" id="category" name="category" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.category" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="information">Información</label>
-                            <input type="text" id="information" name="information" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.information" class="form-control" />
-                        </div>
-                        <div class="form-group d-flex flex-column">
-                            <label for="imgUrl">Url Imagen</label>
-                            <input type="text" id="imgUrl" name="imgUrl" #name="ngModel"
-                                [(ngModel)]="storeService.selectedStore.imgUrl" class="form-control" />
-                        </div>
-                        <button class="btn btn-success mx-2" (click)="createStore(storeForm)">
-                            Guardar
-                        </button>
-                        <button class="btn btn-info mx-2" (click)="cleanForm(storeForm)">
-                            Limpiar
-                        </button>
-                    </form>
-                </div>
+  <div class="row">
+    <!-- Form-->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Administracion de productos</div>
+        <div class="card-body">
+          <form #storeForm="ngForm">
+            <div class="form-group d-flex flex-column">
+              <input
+                type="hidden"
+                id="_id"
+                name="_id"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore._id"
+                class="form-control"
+              />
             </div>
+            <div class="form-group d-flex flex-column">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.name"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group d-flex flex-column">
+              <label for="phone">Telefono</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.phone"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group d-flex flex-column">
+              <label for="location">Barrio</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.location"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group d-flex flex-column">
+              <label for="category">Categoria</label>
+              <input
+                type="text"
+                id="category"
+                name="category"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.category"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group d-flex flex-column">
+              <label for="information">Información</label>
+              <input
+                type="text"
+                id="information"
+                name="information"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.information"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group d-flex flex-column">
+              <label for="imgUrl">Url Imagen</label>
+              <input
+                type="text"
+                id="imgUrl"
+                name="imgUrl"
+                #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.imgUrl"
+                class="form-control"
+              />
+            </div>
+            <button
+              class="btn btn-success mx-2"
+              (click)="createStore(storeForm)"
+            >
+              Guardar
+            </button>
+            <button class="btn btn-info mx-2" (click)="cleanForm(storeForm)">
+              Limpiar
+            </button>
+          </form>
         </div>
-        <!-- Tabla -->
-        <div class="col-md-8">
-            <table class="table table-striped">
-                <thead>
-                    <th>Nombre</th>
-                    <th>
-                        <!-- <button class="btn btn-primary" (click)="filterByPrice()"> -->
-                        Telefono
-                        <!-- </button> -->
-                    </th>
-                    <th>
-                        <!-- <button class="btn btn-primary btn-block" (click)="filterByDate()"> -->
-                        Barrio
-                        <!-- </button> -->
-                    </th>
-                    <th>Categoria</th>
-                    <th>Información</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let store of storeService.store">
-                        <td>{{ store.name }}</td>
-                        <td>{{ store.phone }}</td>
-                        <td>{{ store.location }}</td>
-                        <td>{{ store.category }}</td>
-                        <td>{{ store.information }}</td>
-                        <!-- Buttons -->
-                        <td>
-                            <a (click)="updateStore(store)" class="mx-2 btn btn-warning">Editar</a>
-                                <a (click)="deleteStore(store._id)" class="mx-2 btn btn-danger">Eliminar</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      </div>
     </div>
+    <!-- Tabla -->
+    <div class="col-md-8">
+      <table class="table table-striped">
+        <thead>
+          <th>Nombre</th>
+          <th>
+            <!-- <button class="btn btn-primary" (click)="filterByPrice()"> -->
+            Telefono
+            <!-- </button> -->
+          </th>
+          <th>
+            <!-- <button class="btn btn-primary btn-block" (click)="filterByDate()"> -->
+            Barrio
+            <!-- </button> -->
+          </th>
+          <th>Categoria</th>
+          <th>Información</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let store of storeService.store">
+            <td>{{ store.name }}</td>
+            <td>{{ store.phone }}</td>
+            <td>{{ store.location }}</td>
+            <td>{{ store.category }}</td>
+            <td>{{ store.information }}</td>
+            <!-- Buttons -->
+            <td>
+              <a (click)="updateStore(store)" class="mx-2 btn btn-warning"
+                >Editar</a
+              >
+              <a (click)="deleteStore(store._id)" class="mx-2 btn btn-danger"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
