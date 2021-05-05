@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="d-flex flex-wrap justify-content-center">
+<<<<<<< HEAD
     <div *ngFor="let store of storeService.store" class="m-4">
         <div class="card p-1 shadow" style="width: 18rem;">
             <img src={{store.imgUrl}} class="card-img-top img-fluid" style="height: 12rem" alt="...">
@@ -13,3 +14,18 @@
         </div>
     </div>
 <app-footer></app-footer>
+=======
+  <div *ngFor="let store of storeService.store" class="m-4">
+    <div class="card" style="width: 18rem">
+      <img src="{{ store.imgUrl }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ store.name }}</h5>
+        <p class="card-text">{{ store.phone }}</p>
+        <p class="card-text">{{ store.location }}</p>
+        <p class="card-text">{{ store.category }}</p>
+        <button (click)="accept()" class="btn card-btn-color">Comprar!</button>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> a7aecad9994a64a7cbf4037c9e26c7e7c632e068
