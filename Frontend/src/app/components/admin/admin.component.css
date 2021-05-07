@@ -1,0 +1,15 @@
+.btn-inf{
+    background: #7cd2d3;
+}
+.btn-succes{
+    background: #8be2bd
+}
+.btn-warnin{
+    background: #beb8a1
+}
+.btn-dang{
+    background: #f5ba92
+}
+td{
+    font: size 1rem;
+}

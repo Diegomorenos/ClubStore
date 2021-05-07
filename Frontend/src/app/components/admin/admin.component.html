@@ -2,9 +2,9 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Form-->
-    <div class="mt-4 col-md-4">
+    <div class="mt-4 col-md-3">
       <div class="shadow card">
-        <div class="card-header bg-dark text-light"><h3>Administracion de Tiendas</h3></div>
+        <div class="card-header bg-dark text-light"><h4>Administracion de Tiendas</h4></div>
         <div class="card-body">
           <form #storeForm="ngForm">
             <div class="form-group d-flex flex-column">
@@ -14,7 +14,7 @@
             <div class="form-group d-flex flex-column">
               <label for="name">Nombre de Tienda</label>
               <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="storeService.selectedStore.name"
-                class="form-control"/>
+                class="form-control text-capitalize"/>
             </div>
             <div class="form-group d-flex flex-column">
               <label for="phone">Teléfono</label>
@@ -24,7 +24,7 @@
             <div class="form-group d-flex flex-column">
               <label for="location">Barrio</label>
               <input type="text" id="location" name="location" #name="ngModel"
-                [(ngModel)]="storeService.selectedStore.location" class="form-control" />
+                [(ngModel)]="storeService.selectedStore.location" class="form-control text-capitalize"/>
             </div>
             <div class="form-group d-flex flex-column">
               <label for="category">Categoría</label>
@@ -53,10 +53,10 @@
               <input type="text" id="imgUrl" name="imgUrl" #name="ngModel"
                 [(ngModel)]="storeService.selectedStore.imgUrl" class="form-control" />
             </div>
-            <button class="btn btn-success mx-2" (click)="createStore(storeForm)">
+            <button class="btn btn-succes mx-2" (click)="createStore(storeForm)">
               Guardar
             </button>
-            <button class="btn btn-info mx-2" (click)="cleanForm(storeForm)">
+            <button class="btn btn-inf mx-2" (click)="cleanForm(storeForm)">
               Limpiar
             </button>
           </form>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <!-- Tabla -->
-    <div class="col-md-7">
+    <div class="col-md-9">
       <table class="table table-striped">
         <thead>
           <th>Nombre</th>
@@ -81,7 +81,7 @@
           <th>Categoria</th>
           <th>Información</th>
         </thead>
-        <tbody>
+        <tbody class="text-capitalize">
           <tr *ngFor="let store of storeService.store">
             <td>{{ store.name }}</td>
             <td>{{ store.phone }}</td>
@@ -90,8 +90,8 @@
             <td>{{ store.information }}</td>
             <!-- Buttons -->
             <td>
-              <a (click)="updateStore(store)" class="mx-2 btn btn-warning">Editar</a>
-              <a (click)="deleteStore(store._id)" class="mx-2 btn btn-danger">Eliminar</a>
+              <a (click)="updateStore(store)" class="mx-2 mb-2 btn btn-warnin">Editar</a>
+              <a (click)="deleteStore(store._id)" class="mx-2 btn btn-dang">Eliminar</a>
             </td>
           </tr>
         </tbody>

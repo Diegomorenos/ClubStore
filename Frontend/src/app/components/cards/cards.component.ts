@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cards',
@@ -25,5 +26,17 @@ export class CardsComponent implements OnInit {
         return this.storeService.store;
       }
     );
+  }
+  visit(){
+    Swal.fire({
+      title:'¡Proximamente!',
+      text:'Ahora estas en la versión beta',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
   }
 }

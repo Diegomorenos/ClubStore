@@ -10,7 +10,7 @@ import { Store } from '../../models/store';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  constructor(public storeService: StoreService) {}
+  constructor(public storeService: StoreService) { }
 
   ngOnInit(): void {
     this.executeStore();
@@ -39,82 +39,86 @@ export class AdminComponent implements OnInit {
       this.storeService.createStore(form.value).subscribe(
         (res) => {
           console.log(res);
-          Swal.fire(
-            'Producto Creado',
-            'El Producto se creo correctamente',
-            'success'
-          );
-          this.executeStore();
-          return res;
-        },
-        (err) => {
-          console.log('Error', err);
-          Swal.fire(
-            'Producto No Creado',
-            'El Producto no se creo correctamente',
-            'error'
-          );
-          return err;
-        }
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Tienda Creada',
+            text: 'Un nuevo negocio se ha creado correctamente',
+            showConfirmButton: false,
+            timer: 2000
+          });
+
+      this.executeStore();
+      return res;
+    },
+    (err) => {
+      console.log('Error', err);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Tienda NO Creada'
+      });
+      return err;
+    }
       );
-    } else {
-      this.storeService.updateStore(form.value).subscribe(
+  } else {
+  this.storeService.updateStore(form.value).subscribe(
+    (res) => {
+      console.log(res);
+      Swal.fire(
+        'Tienda Actualizada',
+        'Esta Tienda se Actualizó correctamente',
+        'success'
+      );
+      this.executeStore();
+      return res;
+    },
+    (err) => {
+      console.log(err);
+      return err;
+    }
+  );
+}
+this.cleanForm(form);
+  }
+
+cleanForm(form ?: NgForm) {
+  console.log('limpiar');
+  // if
+  // (form){
+  //   form.reset()
+  //   this.storeService.selectedStore = new store()
+  //   this.executeStore()
+  // }
+}
+
+deleteStore(_id: string) {
+  Swal.fire({
+    title: '¿Estas seguro que deseas eliminar esta tienda?',
+    text: 'Recuerda que no puedes revertir esta acción',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#f5ba92',
+    cancelButtonColor: '#8be2bd',
+    confirmButtonText: 'Si',
+    cancelButtonText: 'No',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.storeService.deleteStore(_id).subscribe(
         (res) => {
           console.log(res);
-          Swal.fire(
-            'Producto Actualizado',
-            'El Producto se Actualizó correctamente',
-            'success'
-          );
           this.executeStore();
-          return res;
         },
         (err) => {
           console.log(err);
-          return err;
         }
       );
+      Swal.fire(
+        'Tienda Eliminada',
+        'Esta tienda se eliminó satisfactoriamente',
+        'success'
+      );
     }
-    this.cleanForm(form);
-  }
-
-  cleanForm(form?: NgForm) {
-    console.log('limpiar');
-    // if
-    // (form){
-    //   form.reset()
-    //   this.storeService.selectedStore = new store()
-    //   this.executeStore()
-    // }
-  }
-
-  deleteStore(_id: string) {
-    Swal.fire({
-      title: '¿Estas seguro que deseas eliminar el producto?',
-      text: 'Recuerda que no puedes revertir esta accion',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si!',
-      cancelButtonText: 'No!',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.storeService.deleteStore(_id).subscribe(
-          (res) => {
-            console.log(res);
-            this.executeStore();
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
-        Swal.fire(
-          'Producto Eliminado',
-          'El producto se elimino satisfactoriamente',
-          'success'
-        );
-      }
-    });
-  }
+  });
+}
 }

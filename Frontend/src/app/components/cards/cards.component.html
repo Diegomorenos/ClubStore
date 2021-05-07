@@ -1,13 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <div class="d-flex flex-wrap justify-content-center">
     <div *ngFor="let store of storeService.store" class="m-4">
         <div class="card p-1 shadow" style="width: 18rem;">
             <img src={{store.imgUrl}} class="card-img-top img-fluid" style="height: 12rem" alt="...">
-              <h5 class="card-title text-center text-uppercase font-weight-bolder">{{store.name}}</h5>
-              <p class="text-right text-capitalize font-weight-bolder">{{store.category}}</p>
-              <p class="m-1 card-text"><b>Celular: </b> +57 {{store.phone}}</p>
-              <p class="m-1 card-text text-capitalize"><b>Barrio: </b>{{store.location}}</p>
-              <p class="mt-3 card-text" style="height:6rem">{{store.information}}</p>
-              <button (click)="visit()" class="mx-auto btn btn-dark">Visitar!</button>
-            </div>
+            <h5 class="card-title text-center text-uppercase font-weight-bolder">{{store.name}}</h5>
+            <p class="text-right text-capitalize font-weight-bolder">{{store.category}}</p>
+            <p class="m-1 card-text"><b>Celular: </b> {{store.phone}}</p>
+            <p class="m-1 card-text text-capitalize"><b>Barrio: </b>{{store.location}}</p>
+            <p class="mt-3 card-text" style="height:6rem">{{store.information}}</p>
+            <button (click)="visit()" class="mx-auto btn btn-dark">Visitar!</button>
         </div>
     </div>
+</div>
