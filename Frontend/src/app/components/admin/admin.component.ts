@@ -84,12 +84,12 @@ this.cleanForm(form);
 
 cleanForm(form ?: NgForm) {
   console.log('limpiar');
-  // if
-  // (form){
-  //   form.reset()
+  if
+  (form){
+  form.reset()
   //   this.storeService.selectedStore = new store()
   //   this.executeStore()
-  // }
+  }
 }
 
 deleteStore(_id: string) {
