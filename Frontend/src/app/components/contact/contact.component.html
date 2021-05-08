@@ -13,18 +13,18 @@
       </div>
       <div class="card bg-warning">
         <div class="card-body">
-          <form action="/email" method="POST">
+          <form novalidate (ngSubmit)="send()" #f="ngForm">
             <div class="form-group">
               <label class="font-weight-light">Nombres y Apellidos</label>
-              <input type="text" name="name" class="text-capitalize form-control" placeholder="Ingresa tu nombre" autofocus />
+              <input type="text" name="name" class="text-capitalize form-control" placeholder="Ingresa tu nombre" autofocus ngModel required/>
             </div>
             <div class="form-group">
               <label class="font-weight-light">Correo electrónico</label>
-              <input type="email" name="email" class="form-control" placeholder="Ingresa tu email" />
+              <input type="email" name="email" class="form-control" placeholder="Ingresa tu email" ngModel required/>
             </div>
             <div class="form-group">
               <label for="Solicitud" class="font-weight-light">Tipo de Solicitud</label>
-              <select class="form-control">
+              <select class="form-control" name="tipo" ngModel required>
                 <option></option>
                 <option>Quiero crear mi tienda on-line</option>
                 <option>Información</option>
@@ -35,9 +35,9 @@
             </div>
             <div class="form-group">
               <label for="text"></label>
-              <textarea class="form-control" placeholder="Escribe aqui"></textarea>
+              <textarea name="text" class="form-control" placeholder="Escribe aqui" ngModel required></textarea>
             </div>
-            <button (click)='send()' class="btn btn-dark btn-block">ENVIAR</button>
+            <button id="submit" type="submit" [disabled]="f.invalid" class="btn btn-dark btn-block">ENVIAR</button>
           </form>
         </div>
       </div>

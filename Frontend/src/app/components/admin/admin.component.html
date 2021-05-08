@@ -28,7 +28,7 @@
             </div>
             <div class="form-group d-flex flex-column">
               <label for="category">Categoría</label>
-              <select class="form-control" type="text" id="category" name="category" #name="ngModel"
+              <select class="form-control" type="text" id="category" name="category" #name="ngModel" required
                 [(ngModel)]="storeService.selectedStore.category" class="form-control">
                 <option></option>
                 <option>Restaurantes y Comidas</option>
@@ -45,13 +45,13 @@
             </div>
             <div class="form-group d-flex flex-column">
               <label for="information">Información</label>
-              <input type="text" id="information" name="information" #name="ngModel"
-                [(ngModel)]="storeService.selectedStore.information" class="form-control" />
+              <textarea type="text" id="information" name="information" #name="ngModel"
+                [(ngModel)]="storeService.selectedStore.information" class="form-control"></textarea>
             </div>
             <div class="form-group d-flex flex-column">
               <label for="imgUrl">Url Imagen</label>
               <input type="text" id="imgUrl" name="imgUrl" #name="ngModel"
-                [(ngModel)]="storeService.selectedStore.imgUrl" class="form-control" />
+                [(ngModel)]="storeService.selectedStore.imgUrl" class="form-control"/>
             </div>
             <button class="btn btn-succes mx-2" (click)="createStore(storeForm)">
               Guardar

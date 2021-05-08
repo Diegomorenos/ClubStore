@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -12,6 +13,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 send(){
   Swal.fire({
     position: 'top-end',
