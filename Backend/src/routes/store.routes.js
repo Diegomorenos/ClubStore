@@ -9,4 +9,5 @@ router.get('/:storeId', storeController.getStoreById)
 router.put('/:storeId', storeController.updateStore)
 router.delete('/:storeId', storeController.deleteStore)
 
-export default router
+
+export default router;
