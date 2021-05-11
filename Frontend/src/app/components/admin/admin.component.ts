@@ -3,6 +3,7 @@ import { StoreService } from '../../services/store.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Store } from '../../models/store';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -10,11 +11,22 @@ import { Store } from '../../models/store';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  constructor(public storeService: StoreService) { }
-
+  myForm: FormGroup;
+  constructor(public storeService: StoreService) {
+    /*this.myForm = this.fb.group({
+      name: ['', [Validators.required]],
+      company: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      url: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    });*/
+   }
+  
   ngOnInit(): void {
     this.executeStore();
   }
+
 
   executeStore() {
     this.storeService.getStore().subscribe(
@@ -35,6 +47,16 @@ export class AdminComponent implements OnInit {
   }
 
   createStore(form?: NgForm) {
+    if (form.value == null) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Error',
+        text: 'Debe llenar el formulario',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
     if (!form.value._id) {
       this.storeService.createStore(form.value).subscribe(
         (res) => {
